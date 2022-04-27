@@ -31,7 +31,7 @@ func EncryptString(privateKey string, plaintext string) (token string) {
 	resultToken.Iv = ivBase64
 	resultToken.Tag = tagBase64
 	resultToken.Value = value
-	mac := Hash(ivBase64, value, privateKey)
+	mac := hash(ivBase64, value, privateKey)
 	resultToken.Mac = mac
 	jsonResult, err := json.Marshal(resultToken)
 	if err != nil {
@@ -40,7 +40,7 @@ func EncryptString(privateKey string, plaintext string) (token string) {
 	return base64.StdEncoding.EncodeToString(jsonResult)
 }
 
-func Hash(iv string, value string, key string) (hash string) {
+func hash(iv string, value string, key string) (hash string) {
 	h := hmac.New(sha256.New, []byte(key))
 	h.Write([]byte(iv + value))
 	sha := hex.EncodeToString(h.Sum(nil))
