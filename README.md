@@ -1,5 +1,6 @@
 # Crypt Laravel
-[![version](https://img.shields.io/badge/version-1.0.0-red "version")](https://gitlab.com/obt-product-manager/tour-manager)
+[![version](https://img.shields.io/badge/version-1.0.1-red "version")](https://github.com/hantulautt/crypt_laravel/releases/tag/v1.0.1)
+
 
 Modul ini dibuat untuk memudahkan developer golang yang harus melakukan encrypt dan decrypt string yang fungsinya sama dengan fungsi [Encrypt & Decrypt Laravel](https://laravel.com/docs/9.x/encryption).
 

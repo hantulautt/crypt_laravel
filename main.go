@@ -10,7 +10,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"math/rand"
-	"strings"
+	"regexp"
 )
 
 type Token struct {
@@ -98,5 +98,8 @@ func DecryptString(privateKey string, token string) (str string) {
 	mode := cipher.NewCBCDecrypter(block, iv)
 	mode.CryptBlocks(ciphertext, ciphertext)
 
-	return strings.Trim(string(ciphertext), "\b")
+	reg, _ := regexp.Compile("[^0-9]+")
+	processedString := reg.ReplaceAllString(string(ciphertext), "")
+
+	return processedString
 }
